@@ -67,6 +67,16 @@ describe "#translate" do
 
   # Test-driving bonus:
   # * write a test asserting that capitalized words are still capitalized (but with a different initial capital letter, of course)
+  it "preserves capitalization of words but on different inital letter" do
+    s = translate("Sir Arthur Doyle created Sherlock Holmes")
+    expect(s).to eq("Irsay Arthuray Oyleday eatedcray Erlockshay Olmeshay")
+  end
+  
   # * retain the punctuation from the original phrase
+  # Notes: retain original positions of contractions. need to address hyphenated words and consecutive punctuations.
+  it "retains punctuation from original phrase" do
+    s = translate("Can't eat the following: apple, banana, cherry?")
+    expect(s).to eq("An'tcay eatay ethay ollowingfay: appleay, ananabay, errychay?")
+  end
 
 end
